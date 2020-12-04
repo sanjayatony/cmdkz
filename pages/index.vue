@@ -1,78 +1,52 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        cmdkz
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="max-w-xl">
+    <Header />
+    <section class="font-code text-lg">
+      <p>
+        ⌘KZ. It's a kind of evil organization. Our main purpose is to bring
+        "Zen" to the coding life of the developers.
+      </p>
+    </section>
+    <section class="py-16 space-y-20 mt-10">
+      <article class="relative">
+        <blockquote>
+          <svg
+            class="w-8 h-8 absolute text-gray-400 fill-current z-0 transform rotate-12"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 123.961 123.961"
+          >
+            <defs />
+            <path
+              d="M49.8 29.032c3.1-1.3 4.4-5 3-8l-4.9-10.3c-1.4-2.899-4.8-4.2-7.8-2.899-8.5 3.6-15.8 8.3-21.6 14C11.4 28.532 6.6 36.232 4 44.732c-2.6 8.601-4 20.3-4 35.2v30.7c0 3.3 2.7 6 6 6h39.3c3.3 0 6-2.7 6-6v-39.3c0-3.301-2.7-6-6-6H26.5c.2-10.101 2.6-18.2 7-24.301 3.6-4.898 9-8.898 16.3-11.999zM120.4 29.032c3.1-1.3 4.399-5 3-8l-4.9-10.199c-1.4-2.9-4.8-4.2-7.8-2.9-8.4 3.6-15.601 8.3-21.5 13.9-7.101 6.8-12 14.5-14.601 23-2.6 8.399-3.899 20.1-3.899 35.1v30.7c0 3.3 2.7 6 6 6H116c3.3 0 6-2.7 6-6v-39.3c0-3.301-2.7-6-6-6H97.1c.2-10.101 2.601-18.2 7-24.301 3.6-4.899 9-8.899 16.3-12z"
+            />
+          </svg>
+          <p class="font-type mb-2 z-10 relative">
+            If you don’t like your destiny, don’t accept it. Instead, have the
+            courage to change it the way you want it to be!
+          </p>
+          <cite class="font-code not-italic text-sm">- Uzumaki Naruto</cite>
+        </blockquote>
+      </article>
+    </section>
+
+    <Footer />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: "CMDKZ",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            '⌘KZ. It\'s a kind of evil organization. Our main purpose is to bring "Zen" to the coding life of the developer.'
+        }
+      ]
+    };
+  }
+};
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
