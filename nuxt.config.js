@@ -41,5 +41,11 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {},
+  publicRuntimeConfig: {
+    baseURL: "https://api.tumblr.com/v2/blog/cmdkz.tumblr.com"
+  },
+  privateRuntimeConfig: {
+    apiKey: process.env.API_KEY
+  }
 };
