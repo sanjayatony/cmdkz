@@ -8,7 +8,7 @@
       </p>
     </section>
     <section class="py-16 space-y-20 mt-10">
-      <article class="relative">
+      <article class="relative" v-for="post in posts" :key="post.id">
         <blockquote>
           <svg
             class="w-8 h-8 absolute text-gray-400 fill-current z-0 transform rotate-12"
@@ -21,10 +21,9 @@
             />
           </svg>
           <p class="font-type mb-2 z-10 relative">
-            If you don’t like your destiny, don’t accept it. Instead, have the
-            courage to change it the way you want it to be!
+            {{ post.text }}
           </p>
-          <cite class="font-code not-italic text-sm">- Uzumaki Naruto</cite>
+          <cite class="font-code not-italic text-sm">- {{ post.source }}</cite>
         </blockquote>
       </article>
     </section>
@@ -35,6 +34,13 @@
 
 <script>
 export default {
+  async asyncData({ $config: { baseURL, apiKey } }) {
+    const tumblr = await fetch(`${baseURL}/posts?api_key=${apiKey}`).then(res =>
+      res.json()
+    );
+    const posts = tumblr.response.posts;
+    return { posts };
+  },
   head() {
     return {
       title: "CMDKZ",
