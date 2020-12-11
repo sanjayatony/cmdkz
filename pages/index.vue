@@ -34,14 +34,19 @@
 
 <script>
 export default {
-  computed: {
-    posts() {
-      return this.$store.state.posts;
-    }
+  data() {
+    return {
+      posts: []
+    };
   },
-  created() {
-    this.$store.dispatch("getPosts");
+  async fetch() {
+    const tumblr = await fetch(
+      `${this.$config.baseURL}/posts?api_key=${this.$config.apiKey}`
+    ).then(res => res.json());
+    this.posts = tumblr.response.posts;
   },
+  fetchOnServer: true,
+
   head() {
     return {
       title: "CMDKZ",
