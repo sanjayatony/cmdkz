@@ -34,8 +34,17 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    "@nuxtjs/proxy"
   ],
+  proxy: {
+    "/api": {
+      target: "https://api.tumblr.com/v2/blog/cmdkz.tumblr.com",
+      pathRewrite: {
+        "^/api": "/"
+      }
+    }
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
@@ -43,7 +52,8 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   publicRuntimeConfig: {
-    baseURL: "https://api.tumblr.com/v2/blog/cmdkz.tumblr.com"
+    baseURL: "https://api.tumblr.com/v2/blog/cmdkz.tumblr.com",
+    apiKey: process.env.API_KEY
   },
   privateRuntimeConfig: {
     apiKey: process.env.API_KEY

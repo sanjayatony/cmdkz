@@ -34,12 +34,13 @@
 
 <script>
 export default {
-  async asyncData({ $config: { baseURL, apiKey } }) {
-    const tumblr = await fetch(`${baseURL}/posts?api_key=${apiKey}`).then(res =>
-      res.json()
-    );
-    const posts = tumblr.response.posts;
-    return { posts };
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    }
+  },
+  created() {
+    this.$store.dispatch("getPosts");
   },
   head() {
     return {
