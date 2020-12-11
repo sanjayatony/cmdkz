@@ -45,8 +45,6 @@ export default {
     ).then(res => res.json());
     this.posts = tumblr.response.posts;
   },
-  fetchOnServer: true,
-
   head() {
     return {
       title: "CMDKZ",
