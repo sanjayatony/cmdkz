@@ -21,9 +21,11 @@
             />
           </svg>
           <p class="font-type mb-2 z-10 relative">
-            {{ post.text }}
+            {{ post.fields.content }}
           </p>
-          <cite class="font-code not-italic text-sm">- {{ post.source }}</cite>
+          <cite class="font-code not-italic text-sm"
+            >- {{ post.fields.source }}</cite
+          >
         </blockquote>
       </article>
     </section>
@@ -34,16 +36,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      posts: []
-    };
-  },
-  async fetch() {
-    const tumblr = await fetch(
-      `${this.$config.baseURL}/posts?api_key=${this.$config.apiKey}`
-    ).then(res => res.json());
-    this.posts = tumblr.response.posts;
+  async asyncData({ $axios, $config: { apiKey } }) {
+    const tables = await $axios.$get("/posts", {
+      headers: { Authorization: `Bearer key${apiKey}` }
+    });
+
+    const posts = tables.records;
+    //console.log(posts);
+    return { posts };
   },
   head() {
     return {
