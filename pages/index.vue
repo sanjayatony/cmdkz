@@ -8,7 +8,7 @@
       </p>
     </section>
     <section class="py-16 space-y-20 mt-10">
-      <article class="relative" v-for="post in posts" :key="post.id">
+      <article class="relative" v-for="post in posts" :key="post.date">
         <blockquote>
           <svg
             class="w-8 h-8 absolute text-gray-400 fill-current z-0 transform rotate-12"
@@ -37,12 +37,14 @@
 <script>
 export default {
   async asyncData({ $axios, $config: { apiKey } }) {
-    const tables = await $axios.$get("/posts", {
-      headers: { Authorization: `Bearer key${apiKey}` }
-    });
+    const tables = await $axios.$get(
+      "/posts/?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",
+      {
+        headers: { Authorization: `Bearer key${apiKey}` }
+      }
+    );
 
     const posts = tables.records;
-    //console.log(posts);
     return { posts };
   },
   head() {
