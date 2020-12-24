@@ -30,9 +30,11 @@
               >-
 
               <span class="inline-block tracking-wider">
-                {{ post.fields.source }}
-                <div class="w-full h-3 bg-yellow-400 -mt-2 bg-opacity-60"></div
-              ></span>
+                <div
+                  class="w-full h-4 bg-yellow-400 -mb-5 transform -rotate-3"
+                ></div>
+                <span class="z-10 relative px-2">{{ post.fields.source }}</span>
+              </span>
             </cite>
           </blockquote>
         </article>
