@@ -16,7 +16,8 @@ module.exports = {
         ocr: ["ocr-a-std", "monospace"],
         code: ["code-saver", "sans-serif"],
         type: ["dico-mono-script", "mono"]
-      }
+      },
+      spacing: {}
     }
   },
   variants: {},
