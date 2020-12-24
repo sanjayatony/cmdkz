@@ -24,8 +24,13 @@
             {{ post.fields.content }}
           </p>
           <cite class="font-code not-italic text-sm"
-            >- {{ post.fields.source }}</cite
-          >
+            >-
+
+            <span class="inline-block">
+              {{ post.fields.source }}
+              <div class="w-full h-3 bg-yellow-400 -mt-2 bg-opacity-60"></div
+            ></span>
+          </cite>
         </blockquote>
       </article>
     </section>
